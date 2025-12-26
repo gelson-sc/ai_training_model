@@ -8,17 +8,20 @@ Como você tem uma GPU NVIDIA, o instalador do Ollama já tentará configurar os
 automaticamente para que a IA rode na sua placa de vídeo.
 Siga estes passos:
 1. Instalação do Binário do Ollama
-Abra o seu terminal (pode ser o do PyCharm ou o do sistema) e execute:``` bash
+Abra o seu terminal (pode ser o do PyCharm ou o do sistema) e execute:
+``` bash
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
 2. Verificar se o Ollama está rodando
-Após o comando terminar, o serviço do Ollama geralmente inicia sozinho. Você pode testar digitando:``` bash
+Após o comando terminar, o serviço do Ollama geralmente inicia sozinho. Você pode testar digitando:
+``` bash
 ollama --version
 ```
 
 3. Baixar o DeepSeek (Modelo de 8 bilhões de parâmetros)
-Como sua GPU tem 12GB de VRAM, esse modelo vai rodar com performance máxima. Execute:``` bash
+Como sua GPU tem 12GB de VRAM, esse modelo vai rodar com performance máxima. Execute:
+``` bash
 ollama run deepseek-r1:8b
 ```
 
@@ -29,24 +32,11 @@ pip install ollama
 ```
 
 5. Ajuste no Código para evitar o np.int64
-Notei no seu console que os números estão saindo como np.int64(7). Para o DeepSeek processar melhor, é bom converter para listas simples de Python. No seu arquivo de análise, você pode usar:
-# ... código anterior ...
 
-# Garantir que os dados do DataFrame sejam convertidos para tipos nativos do Python
-ultimos_10_lista = df.tail(10).values.tolist()
-frequentes_dict = df[['Bola1','Bola2','Bola3','Bola4','Bola5','Bola6']].stack().value_counts().head(10).to_dict()
-
-# Transformar as chaves/valores de numpy para int comum do Python
-frequentes_python = {int(k): int(v) for k, v in frequentes_dict.items()}
-
-prompt = f"""
-Analise os resultados: {ultimos_10_lista}
-Números mais frequentes: {frequentes_python}
-Gere 20 jogos da Mega-Sena.
-"""
-# ... resto do código ...
 
 ### Dica para Ubuntu + NVIDIA:
-Se você quiser monitorar o uso da sua placa de vídeo enquanto o DeepSeek "pensa", abra um segundo terminal e digite:``` bash
+Se você quiser monitorar o uso da sua placa de vídeo enquanto o DeepSeek "pensa",
+abra um segundo terminal e digite:
+``` bash
 watch -n 1 nvidia-smi
 ```
