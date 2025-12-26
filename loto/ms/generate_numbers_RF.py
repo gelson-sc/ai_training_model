@@ -26,7 +26,7 @@ X = df_train[['Concurso', 'Prev_Bola1', 'Prev_Bola2', 'Prev_Bola3', 'Prev_Bola4'
 # Targets: As 6 bolas do concurso atual
 y = df_train[['Bola1', 'Bola2', 'Bola3', 'Bola4', 'Bola5', 'Bola6']]
 
-# 2. Configurar o modelo (limitando n_estimators para poupar sua RAM)
+# 2. Configurar o modelo (limitando n_estimators para poupar RAM)
 model = RandomForestRegressor(n_estimators=50, random_state=42, n_jobs=-1)
 
 print("Treinando o modelo RandomForest (isso pode levar alguns segundos)...")
