@@ -42,7 +42,7 @@ SUA TAREFA:
 Responda no final com uma lista clara dos 20 jogos formatados.
 """
 
-# 4. Execução no Ollama (Aproveitando sua GPU de 12GB) deepseek-r1:8b
+# 4. Execução no Ollama (Aproveitando sua GPU de 12GB) deepseek-r1:8b llama3.2:latest
 try:
     print(f"Enviando dados para o DeepSeek-R1 (8b) via GPU...")
     response = ollama.chat(model='llama3.2:latest', messages=[
