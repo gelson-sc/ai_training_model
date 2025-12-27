@@ -32,7 +32,7 @@ from openai import OpenAI
 # Carrega as variáveis de ambiente do arquivo .env na raiz do projeto
 load_dotenv(dotenv_path="../../.env")
 
-MODEL = os.getenv("OPENROUTER_MODEL", "deepseek/deepseek-r1-0528")
+MODEL = os.getenv("OPENROUTER_MODEL", "deepseek/deepseek-r1-0528:free")
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.2"))
 
 client = OpenAI(

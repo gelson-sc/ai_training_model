@@ -29,7 +29,7 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
-MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek/deepseek-r1-0528")
+MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek/deepseek-r1-0528:free")
 
 
 # ----------------------------
